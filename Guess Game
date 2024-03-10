@@ -1,0 +1,64 @@
+import random
+
+word_list = ["apple", "blackberry", "pokemon", "light"]
+Random_Word = random.choice(word_list)
+# print(Random_Word)
+Length_of_Word = len(Random_Word)
+
+counter = 0
+
+
+def Print_Length_of_Word(Length_of_Word):
+    print(" _ " * Length_of_Word)
+
+
+# Prints Question
+print("Can you guess the word I am thinking of?\n")
+Print_Length_of_Word(Length_of_Word)
+
+Guess = input("Input Guess Here: ")
+answer = Guess == Random_Word
+
+# if correct first time
+if answer:
+    print(f"Correct Good Job! It took you {counter} tries!")
+
+# while loop for answer hints
+while not answer:
+    counter += 1
+    Guess = input("Try Again: ")
+    answer = Guess == Random_Word
+    if counter == 4:
+        print(f"Sorry you reached 5 tries the answer was {Random_Word}")
+        break
+
+    if Random_Word == "apple" and counter == 1 and not answer:
+        print("The color of this object is red")
+    elif Random_Word == "apple" and counter == 2 and not answer:
+        print("The object is a fruit")
+    elif Random_Word == "apple" and counter == 3 and not answer:
+        print("The word starts with an 'a'")
+
+    if Random_Word == "light" and counter == 1 and not answer:
+        print("The sun produces it")
+    elif Random_Word == "light" and counter == 2 and not answer:
+        print("Can be used as a description for weight")
+    elif Random_Word == "light" and counter == 3 and not answer:
+        print("The word starts with an 'l'")
+
+    if Random_Word == "blackberry" and counter == 1 and not answer:
+        print("The word is a fruit")
+    elif Random_Word == "blackberry" and counter == 2 and not answer:
+        print("The object grows in bushes")
+    elif Random_Word == "blackberry" and counter == 3 and not answer:
+        print("The word starts with an 'b'")
+
+    if Random_Word == "pokemon" and counter == 1 and not answer:
+        print("the word is a popular japanese franchise")
+    elif Random_Word == "pokemon" and counter == 2 and not answer:
+        print("The word is a game that has creatures that battle")
+    elif Random_Word == "pokemon" and counter == 3 and not answer:
+        print("The word starts with an 'p'")
+
+    if answer:
+        print(f"Correct Good Job! It took you {counter + 1} tries!")
